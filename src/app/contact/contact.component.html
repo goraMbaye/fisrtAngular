@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="panel-primary">
+        <div class="panel-heading">information</div>
+         <div class="panel-body">
+                <div>
+                        <ul class="list-group"> 
+                            <li class="list-group-item">nom: {{info.nom}}</li>
+                            <li class="list-group-item">prenom: {{info.prenom}}</li>
+                            <li class="list-group-item"> age: {{info.age}}</li>
+                        </ul>
+                    </div>
+                        
+                         <div>
+                            <form #f ="ngForm" (ngSubmit)="addcommentaire(f.value)">
+                                <label class="control-label "> Message</label>
+                                <input type="text" name="message" ngModel  >
+                                <button type="submit" class="btn btn-primary"[disabled]="!f.valid ">ajouter commentaire</button>
+                            </form>
+                        </div>
+                    <div>
+                        <ul class="list-group">
+                            <li class="list-group-item" *ngFor = "let c of comments;let i=index ">
+                                         {{c.message}} 
+                                         {{ c.date }}
+                               
+                            </li>
+                        </ul>
+                        
+                    </div>
+                    
+                    
+
+
+         </div>
+
+    </div>
+</div>
+</body>
+</html>
